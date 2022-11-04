@@ -58,6 +58,11 @@ gen_iptables() {
 EOF
 }
 
+gen_ifconfig() {
+    cat <<EOF
+$(awk -F "/" '{print "ifconfig eth0 inet6 add " $5 "/64"}' ${WORKDATA})
+EOF
+}
 
 gen_data() {
     seq $FIRST_PORT $LAST_PORT | while read port; do
