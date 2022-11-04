@@ -65,6 +65,17 @@ gen_data() {
     done
 }
 
+next() {
+    cd $WORKDIR
+}
+
+next
+
+echo "working folder = /home/proxy-installer"
+WORKDIR="/home/proxy-installer"
+WORKDATA="${WORKDIR}/data.txt"
+mkdir $WORKDIR && cd $_
+
 IP4=$(curl -4 -s icanhazip.com)
 IP6=$(curl -6 -s icanhazip.com | cut -f1-3 -d':')
 
